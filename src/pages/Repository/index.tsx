@@ -61,9 +61,6 @@ const Repository: React.FC = () => {
 
     }, [params.repository])
 
-    console.log(params.repository);
-
-
     return (
 
         <>
