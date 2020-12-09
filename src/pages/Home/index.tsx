@@ -18,7 +18,7 @@ interface Repository {
   };
 }
 
-const Dashboard: React.FC = () => {
+const Home: React.FC = () => {
   const [newRepo, setNewRepo] = useState('');
   const [inputError, setInputError] = useState('');
   const [repositories, setRepositories] = useState<Repository[]>(() => {
@@ -101,4 +101,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Home;
