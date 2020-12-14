@@ -80,7 +80,7 @@ const Repository: React.FC = () => {
           <ul>
             <li>
               <strong>{repository.stargazers_count}</strong>
-              <span>Start</span>
+              <span>Stars</span>
             </li>
             <li>
               <strong>{repository.forks_count}</strong>
