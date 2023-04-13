@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 import api from '../../services/api';
 
 import logoImage from '../../assets/logo.svg';
 import Footer from '../../components/Footer';
 
-import { Header, RespositoryInfo, Issues } from './styles';
+import { Header, Issues, RespositoryInfo } from './styles';
 
 interface RepositoryParams {
   repository: string;
@@ -44,19 +44,6 @@ const Repository: React.FC = () => {
     api.get(`/repos/${params.repository}/issues`).then((response) => {
       setIssues(response.data);
     });
-
-    /*
-            Exemplo usando Promisse.all()
-
-            async function loadData(): Promise<void> {
-             const [repository, issues] = await Promise.all([
-                 api.get(`/repos/${params.repository}`),
-                 api.get(`/repos/${params.repository}/issues`)
-             ])
-            }
-
-            loadData();
-        */
   }, [params.repository]);
 
   return (
