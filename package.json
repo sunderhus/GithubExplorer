@@ -1,28 +1,14 @@
 {
-  "name": "05-primeiro-projeto-react",
+  "name": "clean-react",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "axios": "^0.21.1",
-    "polished": "^3.5.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-icons": "^3.10.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
-    "styled-components": "^5.1.0",
-    "typescript": "~3.7.2",
-    "uuidv4": "^6.1.0"
+  "author": {
+    "name": "Matheus Sunderhus",
+    "url": "https://github.com/sunderhus"
   },
+
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,7 +25,26 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "polished": "^3.5.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "react-router-dom": "^5.1.2",
+    "styled-components": "^5.1.0",
+    "uuidv4": "^6.1.0"
+  },
   "devDependencies": {
+    "react-scripts": "3.4.1",
+    "typescript": "~3.7.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.0",
     "@typescript-eslint/parser": "^2.29.0",
