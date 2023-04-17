@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
-import { shade } from 'polished';
+import styled, { css } from 'styled-components'
+import { shade } from 'polished'
 
 interface FormProps {
-  hasError: boolean;
+  hasError: boolean
 }
 
 export const Title = styled.h1`
@@ -16,7 +16,7 @@ export const Title = styled.h1`
     font-size: 38px;
     word-wrap: break-word;
   }
-`;
+`
 
 export const Form = styled.form<FormProps>`
   margin-top: 40px;
@@ -74,7 +74,7 @@ export const Form = styled.form<FormProps>`
       border-radius: 5px;
     }
   }
-`;
+`
 export const Repositories = styled.div`
   margin: 80px 0px;
   max-width: 700px;
@@ -135,10 +135,10 @@ export const Repositories = styled.div`
       }
     }
   }
-`;
+`
 
 export const Error = styled.span`
   display: block;
   color: #c53030;
   margin-top: 8px;
-`;
+`
