@@ -13,24 +13,25 @@ import logoImage from '../../assets/logo.svg'
 import Footer from '../../components/Footer'
 import { Error, Form, Repositories, Title } from './styles'
 import { Validation } from '../../protocols/validation'
+import { LoadRepositories } from '../../../domain/use-cases/LoadRepositories'
 
 interface Props {
   searchRepository: SearchRepository
   validation: Validation
+  loadRepositories: LoadRepositories
 }
 
-const Home: React.FC<Props> = ({ searchRepository, validation }: Props) => {
+const Home: React.FC<Props> = ({
+  searchRepository,
+  validation,
+  loadRepositories,
+}: Props) => {
   const [searchText, setSearchText] = useState('')
   const [inputError, setInputError] = useState('')
   const [repositories, setRepositories] = useState<Repository[]>(() => {
-    const storagedRepositories = localStorage.getItem(
-      '@GihubExplorer:repositories',
-    )
+    const storagedRepositories = loadRepositories.load()
 
-    if (storagedRepositories) {
-      return JSON.parse(storagedRepositories)
-    }
-    return []
+    return storagedRepositories
   })
 
   const isDuplicated = useCallback(() => {
