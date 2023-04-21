@@ -3,7 +3,8 @@ import {
   CacheContent,
 } from '../../data/protocols/cache/GetCacheClientProtocol'
 
-export class LocalStorageCacheClienteAdapter implements GetCacheClientProtocol {
+export class LocalStorageGetCacheClienteAdapter
+  implements GetCacheClientProtocol {
   getItem(key: string): CacheContent {
     const cacheResult = localStorage.getItem(key)
 

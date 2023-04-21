@@ -14,17 +14,20 @@ import Footer from '../../components/Footer'
 import { Error, Form, Repositories, Title } from './styles'
 import { Validation } from '../../protocols/validation'
 import { LoadRepositories } from '../../../domain/use-cases/LoadRepositories'
+import { SaveRepositories } from '../../../domain/use-cases/SaveRepositories'
 
 interface Props {
   searchRepository: SearchRepository
   validation: Validation
   loadRepositories: LoadRepositories
+  saveRepositories: SaveRepositories
 }
 
 const Home: React.FC<Props> = ({
   searchRepository,
   validation,
   loadRepositories,
+  saveRepositories,
 }: Props) => {
   const [searchText, setSearchText] = useState('')
   const [inputError, setInputError] = useState('')
@@ -76,11 +79,8 @@ const Home: React.FC<Props> = ({
   }
 
   useEffect(() => {
-    localStorage.setItem(
-      '@GihubExplorer:repositories',
-      JSON.stringify(repositories),
-    )
-  }, [repositories])
+    saveRepositories.save(repositories)
+  }, [repositories, saveRepositories])
 
   return (
     <>
