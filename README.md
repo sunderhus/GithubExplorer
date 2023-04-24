@@ -1,48 +1,44 @@
 # Summary
 
-1. **Contact me:** [Matheus Sunderhus](#contact-me).
+1. **What is DDD:** This section explains the powerful concept of [Domain-Driven Design (DDD)](#what-is-ddd), a software development approach that focuses on understanding the business domain and designing software that reflects that understanding. You'll learn how DDD can help your project solve real-world problems and support business goals.
 
-2. **What is DDD:** This section explains what [Domain-Driven Design (DDD)](#what-is-ddd) is and how it can be used to create software that solves real-world problems and helps businesses achieve their goals.
+2. **Benefits of DDD in REACT:** This section dives into the [many benefits](#benefits-of-ddd-in-react) of using DDD in a React project. You'll discover how DDD can improve the organization of your code, create a shared language among stakeholders, increase flexibility to accommodate changes, and enhance testing.
 
-3. **DDD layers:** This section displays some [DDD Layers](#ddd-layers) and encourages users to check out more in the `.github/images` folder.
+3. **Project Screenshots:** In this section, we showcase some [exciting project structure](#project-structure) to give you a taste of what's possible with a DDD approach in React. We encourage you to check out the `.github` folder for more images.
 
-4. **Benefits of DDD in REACT:** This section outlines the [benefits of using DDD in a React project](#benefits-of-ddd-in-react), including better organization, a clearer understanding of business requirements, increased flexibility, and improved testing.
+4. **Contact me:** [Matheus Sunderhus](#contact-me). You can reach me at LinkedIn or e-mail. Get in touch to learn more about how DDD can elevate your React project to the next level.
 
+# Github Explorer + DDD
 
+Welcome to the DDD-powered React project! This project was presented at the Rocketseat API event by Matheus Sunderhus, and it uses Domain-Driven Design (DDD) to help you build powerful and flexible software that solves real-world problems.
 
-# React Project using Domain-Driven Design (DDD)
+## What is DDD?
 
-This is a React project that follows the Domain-Driven Design (DDD) approach. The project was presented at the Rocketseat API by Matheus Sunderhus.
+DDD is a software development approach that focuses on understanding the business domain and designing software that reflects that understanding. By adopting DDD, you can create software that truly solves real-world problems and supports business goals.
 
+In this project, we use DDD to organize code around domain models, and we emphasize the importance of a shared language among all stakeholders.
 
+## Benefits of DDD in React
 
-## Contact me
+In this project, we use DDD to build a React application that is better organized, easier to maintain, and more flexible. Here are some of the benefits of using DDD in a React project:
 
-If you have any questions about this project or would like to contact the presenter, Matheus Sunderhus, you can reach him at:
+- **Improved organization**: By focusing on domain models, we can create a clearer separation of concerns and a more organized codebase.
+- **Clearer understanding of business requirements**: With DDD, all stakeholders speak the same language, which leads to a shared understanding of business requirements and a more effective software design.
+- **Increased flexibility**: By separating domain logic from infrastructure concerns, we can create a more flexible and adaptable software architecture.
+- **Improved testing**: With DDD, we can write more focused and effective tests, leading to higher quality software.
+
+## project structure
+
+Check out these exciting ddd layer structure to get a taste of what's possible with a DDD approach in React. For more images, be sure to check out the `.github/images` folder.
+
+![Screenshot 1](./.github/images/ddd-layers.png)
+
+## Contact Me
+
+If you would like to learn more about DDD in React or have any questions about this project, please don't hesitate to get in touch with Matheus Sunderhus:
 
 - Email: [matheus.sunderhus@gmail.com](mailto:matheus.sunderhus@gmail.com)
 - LinkedIn: [Matheus Sunderhus](https://www.linkedin.com/in/matheus-sunderhus/)
 
-## What is DDD?
-
-Domain-Driven Design is an approach to software development that emphasizes understanding the business domain and designing software that reflects that understanding. The goal of DDD is to create software that solves real-world problems and helps businesses achieve their goals.
-
-In DDD, the business domain is divided into different subdomains, each with its own bounded context. This allows for better organization and a clearer understanding of the business requirements. DDD also emphasizes the use of ubiquitous language, which is a common language used by all stakeholders to describe the business domain.
-
-## DDD layers
-
-![Screenshot 1](./.github/images/ddd-layers.png)
-
-
-## Benefits of DDD in REACT
-
-Using DDD in a React project has several benefits, including:
-
-- **Better organization:** DDD helps organize the codebase into different subdomains, making it easier to understand and maintain.
-
-- **Clearer understanding of business requirements:** By using a ubiquitous language, all stakeholders have a clear understanding of the business requirements and how they are reflected in the code.
-
-- **Increased flexibility:** DDD allows for changes to be made to the codebase without affecting other parts of the system. This makes it easier to add new features and make changes as the business requirements evolve.
-
-- **Improved testing:** DDD encourages the use of unit tests, making it easier to test individual components and ensure that they are working as expected.
+We hope you enjoy exploring this project and learning more about the power of DDD in React!
 
