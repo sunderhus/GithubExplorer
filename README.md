@@ -4,7 +4,7 @@
 
 2. **Benefits of DDD in REACT:** This section dives into the [many benefits](#benefits-of-ddd-in-react) of using DDD in a React project. You'll discover how DDD can improve the organization of your code, create a shared language among stakeholders, increase flexibility to accommodate changes, and enhance testing.
 
-3. **Project Screenshots:** In this section, we showcase some [exciting project structure](#project-structure) to give you a taste of what's possible with a DDD approach in React. We encourage you to check out the `.github` folder for more images.
+3. **Project structure:** In this section, we showcase some [exciting project structure](#project-structure) to give you a taste of what's possible with a DDD approach in React. We encourage you to check out the `.github` folder for more images.
 
 4. **Contact me:** [Matheus Sunderhus](#contact-me). You can reach me at LinkedIn or e-mail. Get in touch to learn more about how DDD can elevate your React project to the next level.
 
@@ -27,7 +27,7 @@ In this project, we use DDD to build a React application that is better organize
 - **Increased flexibility**: By separating domain logic from infrastructure concerns, we can create a more flexible and adaptable software architecture.
 - **Improved testing**: With DDD, we can write more focused and effective tests, leading to higher quality software.
 
-## project structure
+## Project structure
 
 Check out these exciting ddd layer structure to get a taste of what's possible with a DDD approach in React. For more images, be sure to check out the `.github/images` folder.
 
