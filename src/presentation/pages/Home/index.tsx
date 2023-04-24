@@ -87,7 +87,7 @@ const Home: React.FC<Props> = ({
       <img src={logoImage} alt="Github Explorer" />
       <Title>Explore repositórios no github.</Title>
 
-      <Form hasError={!!inputError} onSubmit={handleSubmit}>
+      <Form hasError={!!inputError} onSubmit={(event) => handleSubmit(event)}>
         <input
           value={searchText}
           onChange={(event) => handleChange(event)}

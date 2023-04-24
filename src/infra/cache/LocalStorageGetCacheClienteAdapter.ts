@@ -4,7 +4,8 @@ import {
 } from '../../data/protocols/cache/GetCacheClientProtocol'
 
 export class LocalStorageGetCacheClienteAdapter
-  implements GetCacheClientProtocol {
+  implements GetCacheClientProtocol
+{
   getItem(key: string): CacheContent {
     const cacheResult = localStorage.getItem(key)
 
