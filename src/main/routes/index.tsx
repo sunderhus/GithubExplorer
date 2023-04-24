@@ -1,14 +1,23 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Routes as ReactRouterRoutes, // instead of "Switch"
+  Route,
+} from 'react-router-dom'
 
 import Repository from '../../presentation/pages/RepositoryDetails'
 import { makeHome } from '../factories/views/home-factory'
 
 const Routes: React.FC = () => (
-  <Switch>
-    <Route exact path="/" component={makeHome} />
-    <Route path="/repositories/:repository+" component={Repository} />
-  </Switch>
+  <BrowserRouter>
+    <ReactRouterRoutes>
+      <Route path="/" Component={makeHome} />
+      <Route
+        path="/repositories/:owner/:repositoryName"
+        Component={Repository}
+      />
+    </ReactRouterRoutes>
+  </BrowserRouter>
 )
 
 export default Routes

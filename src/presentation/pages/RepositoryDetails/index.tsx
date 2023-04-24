@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
-import { Link, useRouteMatch } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import logoImage from '../../assets/logo.svg'
 import Footer from '../../components/Footer'
 
 import { Header, Issues, RespositoryInfo } from './styles'
 
-interface RepositoryParams {
-  repository: string
-}
 interface Repository {
   full_name: string
   description: string
@@ -41,22 +38,25 @@ interface Issue {
  */
 
 const RepositoryDetails: React.FC = () => {
-  const { params } = useRouteMatch<RepositoryParams>()
+  const { owner, repositoryName } = useParams<{
+    owner: string
+    repositoryName: string
+  }>()
   const [repository, setRepository] = useState<Repository | null>(null)
   const [issues, setIssues] = useState<Issue[]>([])
 
   useEffect(() => {
     axios
-      .get(`https://api.github.com/repos/${params.repository}`)
+      .get(`https://api.github.com/repos/${owner}/${repositoryName}`)
       .then((response) => {
         setRepository(response.data)
       })
     axios
-      .get(`https://api.github.com/repos/${params.repository}/issues`)
+      .get(`https://api.github.com/repos/${owner}/${repositoryName}/issues`)
       .then((response) => {
         setIssues(response.data)
       })
-  }, [params.repository])
+  }, [owner, repositoryName])
 
   return (
     <>
