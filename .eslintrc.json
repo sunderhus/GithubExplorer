@@ -29,6 +29,7 @@
     "prettier"
   ],
   "rules": {
+    "no-shadow": "off",
     "react/function-component-definition":"off",
     "no-prototype-builtins": "off",
     "no-restricted-syntax": "off",
