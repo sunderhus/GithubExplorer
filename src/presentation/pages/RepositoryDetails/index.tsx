@@ -6,18 +6,9 @@ import logoImage from '../../assets/logo.svg'
 import Footer from '../../components/Footer'
 
 import { Header, Issues, RespositoryInfo } from './styles'
+import { GetRepositoryDetails } from '../../../domain/use-cases/GetRepositoryDetails'
+import { RepositoryDetails } from '../../../domain/models/RepositoryDetails'
 
-interface Repository {
-  full_name: string
-  description: string
-  owner: {
-    login: string
-    avatar_url: string
-  }
-  stargazers_count: number
-  forks_count: number
-  open_issues_count: number
-}
 interface Issue {
   id: number
   title: string
@@ -37,26 +28,36 @@ interface Issue {
  *
  */
 
-const RepositoryDetails: React.FC = () => {
-  const { owner, repositoryName } = useParams<{
+interface Props {
+  getRepositoryDetails: GetRepositoryDetails
+}
+
+const RepositoryDetailsPage: React.FC<Props> = ({
+  getRepositoryDetails,
+}: Props) => {
+  const { owner = '', repositoryName = '' } = useParams<{
     owner: string
     repositoryName: string
   }>()
-  const [repository, setRepository] = useState<Repository | null>(null)
+  const [repository, setRepository] = useState<RepositoryDetails | null>(null)
   const [issues, setIssues] = useState<Issue[]>([])
 
   useEffect(() => {
-    axios
-      .get(`https://api.github.com/repos/${owner}/${repositoryName}`)
-      .then((response) => {
-        setRepository(response.data)
+    getRepositoryDetails
+      .get(owner, repositoryName)
+      .then((repository) => {
+        setRepository(repository)
       })
+      .catch(() => {
+        setRepository(null)
+      })
+
     axios
       .get(`https://api.github.com/repos/${owner}/${repositoryName}/issues`)
       .then((response) => {
         setIssues(response.data)
       })
-  }, [owner, repositoryName])
+  }, [getRepositoryDetails, owner, repositoryName])
 
   return (
     <>
@@ -70,23 +71,23 @@ const RepositoryDetails: React.FC = () => {
       {repository ? (
         <RespositoryInfo>
           <header>
-            <img src={repository.owner.avatar_url} alt="Owner profile avatar" />
+            <img src={repository.owner.avatar} alt="Owner profile avatar" />
             <div>
-              <strong>{repository.full_name}</strong>
+              <strong>{repository.name}</strong>
               <p>{repository.description}</p>
             </div>
           </header>
           <ul>
             <li>
-              <strong>{repository.stargazers_count}</strong>
+              <strong>{repository.stars}</strong>
               <span>Stars</span>
             </li>
             <li>
-              <strong>{repository.forks_count}</strong>
+              <strong>{repository.forks}</strong>
               <span>Forks</span>
             </li>
             <li>
-              <strong>{repository.open_issues_count}</strong>
+              <strong>{repository.issues}</strong>
               <span>Issues abertos</span>
             </li>
           </ul>
@@ -112,4 +113,4 @@ const RepositoryDetails: React.FC = () => {
   )
 }
 
-export default RepositoryDetails
+export default RepositoryDetailsPage

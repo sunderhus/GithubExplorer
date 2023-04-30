@@ -1,5 +1,5 @@
-import { Repository } from '../models/Repository'
+import { RepositoryDetails } from '../models/RepositoryDetails'
 
 export interface GetRepositoryDetails {
-  load(id: string): Promise<Repository>
+  get(owner: string, repositoryName: string): Promise<RepositoryDetails>
 }
