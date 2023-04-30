@@ -5,16 +5,16 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import { FiChevronRight } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
-import { Repository } from '../../../domain/models/Repository'
+
 import { SearchRepository } from '../../../domain/use-cases/SearchRepository'
 import logoImage from '../../assets/logo.svg'
 import Footer from '../../components/Footer'
-import { Error, Form, Repositories, Title } from './styles'
+import { Error, Form, Title } from './styles'
 import { Validation } from '../../protocols/validation'
 import { LoadRepositories } from '../../../domain/use-cases/LoadRepositories'
 import { SaveRepositories } from '../../../domain/use-cases/SaveRepositories'
+import RepositoriesList from '../../components/RepositoriesList'
+import { Repository } from '../../../domain/models/Repository'
 
 interface Props {
   searchRepository: SearchRepository
@@ -98,18 +98,7 @@ const Home: React.FC<Props> = ({
 
       {inputError && <Error>{inputError}</Error>}
 
-      <Repositories>
-        {repositories.map(({ name, description, owner }) => (
-          <Link key={`${name}`} to={`/repositories/${owner.login}/${name}`}>
-            <img src={owner.avatar} alt={owner.login} />
-            <div>
-              <strong>{name}</strong>
-              <p>{description}</p>
-            </div>
-            <FiChevronRight size={20} />
-          </Link>
-        ))}
-      </Repositories>
+      <RepositoriesList repositories={repositories} />
 
       <Footer />
     </>
