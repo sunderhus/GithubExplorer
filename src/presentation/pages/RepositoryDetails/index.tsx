@@ -1,46 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { Link, useParams } from 'react-router-dom'
-import axios from 'axios'
 import logoImage from '../../assets/logo.svg'
 import Footer from '../../components/Footer'
 
 import { Header, Issues, RespositoryInfo } from './styles'
 import { GetRepositoryDetails } from '../../../domain/use-cases/GetRepositoryDetails'
 import { RepositoryDetails } from '../../../domain/models/RepositoryDetails'
+import { GetRepositoryIssues } from '../../../domain/use-cases/GetRepositoryIssues'
+import { RepositoryIssue } from '../../../domain/models/RepositoryIssue'
 
-interface Issue {
-  id: number
-  title: string
-  html_url: string
-  user: {
-    login: string
-  }
-}
 /**
- * Desafio API
- *  - Crie os dois casos de uso necessários para esta view.
- *  - Desacoplar esta view do Axios.
- *  - Milha extra:
- *  -- Crie componentes menores para essa View.
- *  -- Crie Testes unitários
- *  -- Aplique recomendações do Clean Code no projeto.
+ * API Challenge
+ * Next Steps for you
+ *  -- Add/Create smaller components when possible.
+ *  -- Add unit tests
+ *  -- Apply Clean Code to this project.
+ * Further Questions?
+ * contact me: https://www.linkedin.com/in/matheus-sunderhus/
  *
  */
 
 interface Props {
   getRepositoryDetails: GetRepositoryDetails
+  getRepositoryIssues: GetRepositoryIssues
 }
 
 const RepositoryDetailsPage: React.FC<Props> = ({
   getRepositoryDetails,
+  getRepositoryIssues,
 }: Props) => {
   const { owner = '', repositoryName = '' } = useParams<{
     owner: string
     repositoryName: string
   }>()
   const [repository, setRepository] = useState<RepositoryDetails | null>(null)
-  const [issues, setIssues] = useState<Issue[]>([])
+  const [issues, setIssues] = useState<RepositoryIssue[]>([])
 
   useEffect(() => {
     getRepositoryDetails
@@ -52,12 +47,15 @@ const RepositoryDetailsPage: React.FC<Props> = ({
         setRepository(null)
       })
 
-    axios
-      .get(`https://api.github.com/repos/${owner}/${repositoryName}/issues`)
-      .then((response) => {
-        setIssues(response.data)
+    getRepositoryIssues
+      .get(owner, repositoryName)
+      .then((issues) => {
+        setIssues(issues)
       })
-  }, [getRepositoryDetails, owner, repositoryName])
+      .catch(() => {
+        setIssues([])
+      })
+  }, [getRepositoryDetails, getRepositoryIssues, owner, repositoryName])
 
   return (
     <>
@@ -98,10 +96,10 @@ const RepositoryDetailsPage: React.FC<Props> = ({
 
       <Issues>
         {issues.map((issue) => (
-          <a key={issue.id} href={issue.html_url}>
+          <a key={issue.id} href={issue.linkTo}>
             <div>
               <strong>{issue.title}</strong>
-              <p>{issue.user.login}</p>
+              <p>{issue.createdBy}</p>
             </div>
             <FiChevronRight size={20} />
           </a>
