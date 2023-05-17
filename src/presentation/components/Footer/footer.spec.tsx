@@ -18,4 +18,12 @@ describe('Footer', () => {
       'https://www.linkedin.com/in/matheus-sunderhus/',
     )
   })
+
+  it('should present the repository author name', () => {
+    makeSut()
+
+    const authorName = screen.getByTestId('author')
+
+    expect(authorName).toHaveTextContent('Matheus Sunderhus')
+  })
 })
