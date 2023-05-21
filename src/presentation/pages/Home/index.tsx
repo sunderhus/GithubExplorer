@@ -93,7 +93,7 @@ const Home: React.FC<Props> = ({
           onChange={(event) => handleChange(event)}
           placeholder="Please provide the name of the repository."
         />
-        <button type="submit">Pesquisar</button>
+        <button type="submit">Search</button>
       </Form>
 
       {formError && <Error>{formError}</Error>}
