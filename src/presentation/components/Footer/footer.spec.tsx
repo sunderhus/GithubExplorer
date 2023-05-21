@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Footer from '.'
 
-const makeSut = () => {
+const makeSut = (): void => {
   render(<Footer />)
 }
 
