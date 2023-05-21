@@ -30,7 +30,7 @@ const Home: React.FC<Props> = ({
   saveRepositories,
 }: Props) => {
   const [searchText, setSearchText] = useState('')
-  const [inputError, setInputError] = useState('')
+  const [formError, setFormError] = useState('')
   const [repositories, setRepositories] = useState<Repository[]>(() => {
     const storagedRepositories = loadRepositories.load()
 
@@ -57,12 +57,12 @@ const Home: React.FC<Props> = ({
 
     const validationError = validation.validate(searchText)
     if (validationError) {
-      setInputError(validationError.message)
+      setFormError(validationError.message)
       return
     }
 
     if (isDuplicated()) {
-      setInputError('Este repositório já está na listagem.')
+      setFormError('This repository is already listed.')
       return
     }
 
@@ -71,10 +71,10 @@ const Home: React.FC<Props> = ({
       setRepositories([...repositories, response])
 
       setSearchText('')
-      setInputError('')
+      setFormError('')
     } catch (error) {
       const parsedError = error as Error
-      setInputError(parsedError.message)
+      setFormError(parsedError.message)
     }
   }
 
@@ -85,18 +85,18 @@ const Home: React.FC<Props> = ({
   return (
     <>
       <img src={logoImage} alt="Github Explorer" />
-      <Title>Explore repositórios no github.</Title>
+      <Title>Explore repositories on GitHub.</Title>
 
-      <Form hasError={!!inputError} onSubmit={(event) => handleSubmit(event)}>
+      <Form hasError={!!formError} onSubmit={(event) => handleSubmit(event)}>
         <input
           value={searchText}
           onChange={(event) => handleChange(event)}
-          placeholder="Digite o nome do repositório"
+          placeholder="Please provide the name of the repository."
         />
         <button type="submit">Pesquisar</button>
       </Form>
 
-      {inputError && <Error>{inputError}</Error>}
+      {formError && <Error>{formError}</Error>}
 
       <RepositoriesList repositories={repositories} />
 
