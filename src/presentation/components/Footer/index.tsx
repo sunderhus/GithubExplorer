@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <Container>
       <a href="https://www.linkedin.com/in/matheus-sunderhus/">
         <FiLinkedin />
-        <p>Matheus Sunderhus</p>
+        <p data-testid="author">Matheus Sunderhus</p>
       </a>
     </Container>
   )

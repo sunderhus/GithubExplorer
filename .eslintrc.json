@@ -29,6 +29,7 @@
     "prettier"
   ],
   "rules": {
+    "import/no-extraneous-dependencies":"off",
     "no-shadow": "off",
     "react/function-component-definition":"off",
     "no-prototype-builtins": "off",
