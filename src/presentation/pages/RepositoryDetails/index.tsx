@@ -62,7 +62,7 @@ const RepositoryDetailsPage: React.FC<Props> = ({
         <img src={logoImage} alt="Github Explorer" />
         <Link to="/">
           <FiChevronLeft size={16} color="#3D3D4D" />
-          <strong>Voltar</strong>
+          <strong>Go back</strong>
         </Link>
       </Header>
       {repository ? (
@@ -85,12 +85,12 @@ const RepositoryDetailsPage: React.FC<Props> = ({
             </li>
             <li>
               <strong>{repository.issues}</strong>
-              <span>Issues abertos</span>
+              <span>Open issues</span>
             </li>
           </ul>
         </RespositoryInfo>
       ) : (
-        <p>Carregando informações.</p>
+        <p>Loading information.</p>
       )}
 
       <Issues>
