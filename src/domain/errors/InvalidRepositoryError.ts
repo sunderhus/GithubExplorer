@@ -1,6 +1,6 @@
 export class InvalidRepositoryError extends Error {
   constructor() {
-    super('Repositório Inválido')
+    super('Invalid Repository')
     this.name = 'InvalidRepositoryError'
   }
 }
