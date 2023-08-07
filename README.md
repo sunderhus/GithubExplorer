@@ -1,6 +1,7 @@
 # Summary
 
-1. **What is DDD:** This section explains the powerful concept of [Domain-Driven Design (DDD)](#what-is-ddd), a software development approach that focuses on understanding the business domain and designing software that reflects that understanding. You'll learn how DDD can help your project solve real-world problems and support business goals.
+1. **What is DDD:** 
+This section explains the powerful concept of [Domain-Driven Design (DDD)](#what-is-ddd), a software development approach that focuses on understanding the business domain and designing software that reflects that understanding. You'll learn how DDD can help your project solve real-world problems and support business goals.
 
 2. **Benefits of DDD in REACT:** This section dives into the [many benefits](#benefits-of-ddd-in-react) of using DDD in a React project. You'll discover how DDD can improve the organization of your code, create a shared language among stakeholders, increase flexibility to accommodate changes, and enhance testing.
 
