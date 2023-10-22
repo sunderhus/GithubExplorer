@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
@@ -8,7 +7,7 @@ import { Repository } from '../../../domain/models/Repository'
 type sutParams = {
   repositoriesMock: Repository[]
 }
-const makeSut = ({ repositoriesMock }: sutParams) => {
+const makeSut = ({ repositoriesMock }: sutParams): void => {
   render(<RepositoryList repositories={repositoriesMock} />, {
     wrapper: BrowserRouter,
   })
