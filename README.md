@@ -12,6 +12,10 @@
 
 Welcome to the DDD-powered React project! This project was presented at the Rocketseat API event by Matheus Sunderhus, and it uses Domain-Driven Design (DDD) to help you build powerful and flexible software that solves real-world problems.
 
+<p align="center">
+  <img styles="display:flex; align-self:center;" src="./.github/images/project-home.png">
+</p>
+
 ## What is DDD?
 
 DDD is a software development approach that focuses on understanding the business domain and designing software that reflects that understanding. By adopting DDD, you can create software that truly solves real-world problems and supports business goals.
@@ -41,4 +45,3 @@ If you would like to learn more about DDD in React or have any questions about t
 - LinkedIn: [Matheus Sunderhus](https://www.linkedin.com/in/matheus-sunderhus/)
 
 We hope you enjoy exploring this project and learning more about the power of DDD in React!
-

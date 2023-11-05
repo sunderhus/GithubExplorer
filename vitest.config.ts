@@ -13,6 +13,14 @@ export default mergeConfig(
       coverage: {
         provider: "istanbul",
         enabled: true,
+
+        include: [
+          "!**/styles.{ts,tsx}",
+          "!**.d.ts",
+          "!src/main",
+          "!main.tsx",
+          "src/{data,presentation,domain,infra,validation}",
+        ],
       },
     },
   })

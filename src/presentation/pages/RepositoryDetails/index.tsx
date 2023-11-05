@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
-import { Link, useParams } from 'react-router-dom'
-import logoImage from '../../assets/logo.svg'
-import Footer from '../../components/Footer'
+import React, { useEffect, useState } from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { Link, useParams } from "react-router-dom";
+import logoImage from "../../assets/logo.svg";
+import Footer from "../../components/Footer";
 
-import { Header, Issues, RespositoryInfo } from './styles'
-import { GetRepositoryDetails } from '../../../domain/use-cases/GetRepositoryDetails'
-import { RepositoryDetails } from '../../../domain/models/RepositoryDetails'
-import { GetRepositoryIssues } from '../../../domain/use-cases/GetRepositoryIssues'
-import { RepositoryIssue } from '../../../domain/models/RepositoryIssue'
+import { Header, Issues, RespositoryInfo } from "./styles";
+import { GetRepositoryDetails } from "../../../domain/use-cases/GetRepositoryDetails";
+import { RepositoryDetails } from "../../../domain/models/RepositoryDetails";
+import { GetRepositoryIssues } from "../../../domain/use-cases/GetRepositoryIssues";
+import { RepositoryIssue } from "../../../domain/models/RepositoryIssue";
 
 /**
- *  👋👨‍💻 Hey there! It's time for the API Challenge! 🚀
+ *  👋👨‍💻 Hey there! It's time for the Rocketseat API Challenge! 🚀
  *  Here are some Next Steps for you:
  *  ✨ Add/Create smaller components when possible.
  *  🧪 Add unit tests.
@@ -21,40 +21,40 @@ import { RepositoryIssue } from '../../../domain/models/RepositoryIssue'
  */
 
 interface Props {
-  getRepositoryDetails: GetRepositoryDetails
-  getRepositoryIssues: GetRepositoryIssues
+  getRepositoryDetails: GetRepositoryDetails;
+  getRepositoryIssues: GetRepositoryIssues;
 }
 
 const RepositoryDetailsPage: React.FC<Props> = ({
   getRepositoryDetails,
   getRepositoryIssues,
 }: Props) => {
-  const { owner = '', repositoryName = '' } = useParams<{
-    owner: string
-    repositoryName: string
-  }>()
-  const [repository, setRepository] = useState<RepositoryDetails | null>(null)
-  const [issues, setIssues] = useState<RepositoryIssue[]>([])
+  const { owner = "", repositoryName = "" } = useParams<{
+    owner: string;
+    repositoryName: string;
+  }>();
+  const [repository, setRepository] = useState<RepositoryDetails | null>(null);
+  const [issues, setIssues] = useState<RepositoryIssue[]>([]);
 
   useEffect(() => {
     getRepositoryDetails
       .get(owner, repositoryName)
       .then((repository) => {
-        setRepository(repository)
+        setRepository(repository);
       })
       .catch(() => {
-        setRepository(null)
-      })
+        setRepository(null);
+      });
 
     getRepositoryIssues
       .get(owner, repositoryName)
       .then((issues) => {
-        setIssues(issues)
+        setIssues(issues);
       })
       .catch(() => {
-        setIssues([])
-      })
-  }, [getRepositoryDetails, getRepositoryIssues, owner, repositoryName])
+        setIssues([]);
+      });
+  }, [getRepositoryDetails, getRepositoryIssues, owner, repositoryName]);
 
   return (
     <>
@@ -107,7 +107,7 @@ const RepositoryDetailsPage: React.FC<Props> = ({
 
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default RepositoryDetailsPage
+export default RepositoryDetailsPage;
