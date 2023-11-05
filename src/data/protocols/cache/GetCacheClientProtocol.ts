@@ -1,7 +1,7 @@
 export interface CacheContent {
-  content: string
+  content: string;
 }
 
 export interface GetCacheClientProtocol {
-  getItem: (key: string) => CacheContent
+  getItem: (key: string) => CacheContent;
 }

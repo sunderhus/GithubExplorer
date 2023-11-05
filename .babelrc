@@ -1,4 +1,0 @@
-{
-  "presets": ["@babel/preset-flow", "react-app"],
-  "plugins": ["@babel/plugin-syntax-flow"]
-}

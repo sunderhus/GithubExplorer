@@ -1,29 +1,30 @@
-import { LocalStorageSaveCacheClienteAdapter } from './LocalStorageSaveCacheClienteAdapter'
+import { LocalStorageSaveCacheClienteAdapter } from "./LocalStorageSaveCacheClienteAdapter";
+import { describe, beforeEach, vi, afterEach, it, expect } from "vitest";
 
 const makeSut = (): { sut: LocalStorageSaveCacheClienteAdapter } => {
-  const sut = new LocalStorageSaveCacheClienteAdapter()
+  const sut = new LocalStorageSaveCacheClienteAdapter();
 
   return {
     sut,
-  }
-}
+  };
+};
 
-describe('LocalStorageSaveCacheClienteAdapter', () => {
+describe("LocalStorageSaveCacheClienteAdapter", () => {
   beforeEach(() => {
-    Storage.prototype.setItem = jest.fn()
-  })
+    Storage.prototype.setItem = vi.fn();
+  });
   afterEach(() => {
-    jest.clearAllMocks()
-  })
+    vi.clearAllMocks();
+  });
 
-  it('should call localStorage with correct params', () => {
-    const setItemSpy = jest.spyOn(Storage.prototype, 'setItem')
-    const cacheKeyMock = 'Cloud-Test-key'
-    const cacheMock = '612387-%nsdj-$!@%BN'
-    const { sut } = makeSut()
+  it("should call localStorage with correct params", () => {
+    const setItemSpy = vi.spyOn(Storage.prototype, "setItem");
+    const cacheKeyMock = "Cloud-Test-key";
+    const cacheMock = "612387-%nsdj-$!@%BN";
+    const { sut } = makeSut();
 
-    sut.save(cacheKeyMock, cacheMock)
+    sut.save(cacheKeyMock, cacheMock);
 
-    expect(setItemSpy).toHaveBeenCalledWith(cacheKeyMock, `"${cacheMock}"`)
-  })
-})
+    expect(setItemSpy).toHaveBeenCalledWith(cacheKeyMock, `"${cacheMock}"`);
+  });
+});
