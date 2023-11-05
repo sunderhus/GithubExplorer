@@ -9,6 +9,6 @@ export class CacheSaveRepositories implements SaveRepositories {
   ) {}
 
   save(repositories: Repository[]): void {
-    this.cacheClient.save(this.key, repositories)
+    this.cacheClient.save<Repository[]>(this.key, repositories)
   }
 }
