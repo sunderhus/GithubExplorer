@@ -1,6 +1,6 @@
-import { LocalStorageSaveCacheClienteAdapter } from '../../../infra/cache/LocalStorageSaveCacheClienteAdapter'
+import { LocalStorageSaveCacheClienteAdapter } from "@/infra/cache/LocalStorageSaveCacheClienteAdapter";
 
 export const makeLocalStorageSaveCacheAdapter =
   (): LocalStorageSaveCacheClienteAdapter => {
-    return new LocalStorageSaveCacheClienteAdapter()
-  }
+    return new LocalStorageSaveCacheClienteAdapter();
+  };

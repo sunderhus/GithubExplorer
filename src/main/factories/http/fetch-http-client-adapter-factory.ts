@@ -1,5 +1,5 @@
-import { FetchHttpClientAdapter } from '../../../infra/http/FetchHttpClientAdapter'
+import { FetchHttpClientAdapter } from "@/infra/http/FetchHttpClientAdapter";
 
 export const makeFetchHttpClientAdapter = (): FetchHttpClientAdapter => {
-  return new FetchHttpClientAdapter()
-}
+  return new FetchHttpClientAdapter();
+};
