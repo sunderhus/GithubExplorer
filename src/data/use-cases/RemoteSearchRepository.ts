@@ -1,40 +1,40 @@
-import { InvalidRepositoryError } from '../../domain/errors/InvalidRepositoryError'
-import { UnexpectedError } from '../../domain/errors/UnexpectedError'
-import { Repository } from '../../domain/models/Repository'
-import { SearchRepository } from '../../domain/use-cases/SearchRepository'
+import { InvalidRepositoryError } from "@/domain/errors/InvalidRepositoryError";
+import { UnexpectedError } from "@/domain/errors/UnexpectedError";
+import { Repository } from "@/domain/models/Repository";
+import { SearchRepository } from "@/domain/use-cases/SearchRepository";
 import {
   HttpClientProtocol,
   HttpStatusCode,
-} from '../protocols/http/HttpClientProtocol'
+} from "../protocols/http/HttpClientProtocol";
 
 interface RemoteRepository {
-  name: string
-  description: string
+  name: string;
+  description: string;
   owner: {
-    login: string
-    avatar_url: string
-  }
+    login: string;
+    avatar_url: string;
+  };
 }
 
 export class RemoteSearchRepository implements SearchRepository {
   constructor(
     private readonly url: string,
-    private readonly httpClient: HttpClientProtocol,
+    private readonly httpClient: HttpClientProtocol
   ) {}
 
   async search(searchText: string): Promise<Repository> {
     const httpResponse = await this.httpClient.request({
-      method: 'GET',
+      method: "GET",
       url: `${this.url}/${searchText}`,
-    })
+    });
 
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
-        return this.parse(httpResponse.body as RemoteRepository)
+        return this.parse(httpResponse.body as RemoteRepository);
       case HttpStatusCode.notFound:
-        throw new InvalidRepositoryError()
+        throw new InvalidRepositoryError();
       default:
-        throw new UnexpectedError()
+        throw new UnexpectedError();
     }
   }
 
@@ -46,6 +46,6 @@ export class RemoteSearchRepository implements SearchRepository {
         avatar: httpResponse.owner.avatar_url,
         login: httpResponse.owner.login,
       },
-    }
+    };
   }
 }
