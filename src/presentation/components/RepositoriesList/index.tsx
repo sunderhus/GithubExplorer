@@ -1,11 +1,11 @@
-import React from 'react'
-import { FiChevronRight } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
-import { Repository } from '../../../domain/models/Repository'
-import { Container } from './styles'
+import React from "react";
+import { FiChevronRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { Repository } from "@/domain/models/Repository";
+import { Container } from "./styles";
 
 interface Props {
-  repositories: Repository[]
+  repositories: Repository[];
 }
 const RepositoriesList: React.FC<Props> = ({ repositories }: Props) => {
   return (
@@ -21,7 +21,7 @@ const RepositoriesList: React.FC<Props> = ({ repositories }: Props) => {
         </Link>
       ))}
     </Container>
-  )
-}
+  );
+};
 
-export default RepositoriesList
+export default RepositoriesList;

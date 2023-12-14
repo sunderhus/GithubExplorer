@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { BrowserRouter } from "react-router-dom";
 import RepositoryList from ".";
-import { Repository } from "../../../domain/models/Repository";
+import { Repository } from "@/domain/models/Repository";
 
 type sutParams = {
   repositoriesMock: Repository[];

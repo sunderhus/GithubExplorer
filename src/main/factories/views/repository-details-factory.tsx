@@ -1,7 +1,7 @@
-import React from 'react'
-import RepositoryDetailsPage from '../../../presentation/pages/RepositoryDetails'
-import { makeRemoteGetRepositoryDetails } from '../use-cases/remote-get-repository-details-factory'
-import { makeRemoteGetRepositoryIssues } from '../use-cases/remote-get-repository-issues-factory'
+import React from "react";
+import RepositoryDetailsPage from "@/presentation/pages/RepositoryDetails";
+import { makeRemoteGetRepositoryDetails } from "../use-cases/remote-get-repository-details-factory";
+import { makeRemoteGetRepositoryIssues } from "../use-cases/remote-get-repository-issues-factory";
 
 export const makeRepositoryDetails: React.FC = () => {
   return (
@@ -9,5 +9,5 @@ export const makeRepositoryDetails: React.FC = () => {
       getRepositoryDetails={makeRemoteGetRepositoryDetails()}
       getRepositoryIssues={makeRemoteGetRepositoryIssues()}
     />
-  )
-}
+  );
+};
