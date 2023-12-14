@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link, useParams } from "react-router-dom";
-import logoImage from "../../assets/logo.svg";
-import Footer from "../../components/Footer";
+import logoImage from "@/presentation/assets/logo.svg";
+import Footer from "@/presentation/components/Footer";
 
 import { Header, Issues, RespositoryInfo } from "./styles";
-import { GetRepositoryDetails } from "../../../domain/use-cases/GetRepositoryDetails";
-import { RepositoryDetails } from "../../../domain/models/RepositoryDetails";
-import { GetRepositoryIssues } from "../../../domain/use-cases/GetRepositoryIssues";
-import { RepositoryIssue } from "../../../domain/models/RepositoryIssue";
+import { GetRepositoryDetails } from "@/domain/use-cases/GetRepositoryDetails";
+import { RepositoryDetails } from "@/domain/models/RepositoryDetails";
+import { GetRepositoryIssues } from "@/domain/use-cases/GetRepositoryIssues";
+import { RepositoryIssue } from "@/domain/models/RepositoryIssue";
 
 /**
  *  👋👨‍💻 Hey there! It's time to make some changes. 🚀
