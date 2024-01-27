@@ -9,6 +9,11 @@ This section explains the powerful concept of [Domain-Driven Design (DDD)](#what
 
 4. **Contact me:** [Matheus Sunderhus](#contact-me). You can reach me at LinkedIn or e-mail. Get in touch to learn more about how DDD can elevate your React project to the next level.
 
+## To watch a demonstration of this project [click here](https://youtu.be/3_w_MLb0zuU?si=s-26GebryxTBLA1q)
+![image](https://github.com/sunderhus/GithubExplorer/assets/44003532/20b4a995-5161-4ccd-b7cf-0cd48c961ff1)
+
+
+
 # Github Explorer + DDD
 
 Welcome to the DDD-powered React project! This project was presented at the Rocketseat API event by Matheus Sunderhus, and it uses Domain-Driven Design (DDD) to help you build powerful and flexible software that solves real-world problems.
